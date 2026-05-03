@@ -1,0 +1,15 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+
+.demo_logs/
+.demo_state/
+.tmp_*/
+.tmp_tests/
+.tmp_test_runs/
+.tmp_smoke/
+
+data/chat_logs.jsonl
+data/index.json
+data/system_prompt.txt

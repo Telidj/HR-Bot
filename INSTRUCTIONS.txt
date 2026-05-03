@@ -1,0 +1,32 @@
+HR & IT Assistant Bot - инструкция по запуску
+
+1) Подготовьте документы
+- Поместите корпоративные документы в `documents/`.
+- Поддерживаемые форматы: `.txt`, `.md`, `.pdf`, `.docx`.
+
+2) Настройте `.env`
+- `OPENAI_API_KEY=...`
+- `ADMIN_TOKEN=...`
+
+3) Установите зависимости
+- `pip install -r requirements.txt`
+- `pip install streamlit requests`
+
+4) Запустите сервисы
+- Быстрый запуск всех сервисов:
+  `powershell -ExecutionPolicy Bypass -File .\run_demo.ps1`
+  Остановка:
+  `powershell -ExecutionPolicy Bypass -File .\stop_demo.ps1`
+- API: `uvicorn app:app --host 0.0.0.0 --port 8000`
+- User UI: `streamlit run streamlit_app.py`
+- Admin UI: `streamlit run admin_app.py`
+
+5) Пересборка индекса документов
+- Через админку кнопкой `Rebuild index`, или API: `POST /admin/rebuild-index`
+
+6) Где что находится
+- `api/` — роуты и схемы
+- `services/` — бизнес-логика
+- `rag/` — RAG/NLP/промпты
+- `workflow.py` — workflow заявки и БД
+- `web_ui/` — Streamlit интерфейсы
